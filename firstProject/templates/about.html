@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{%block content%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Django App</title>
+    
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Welcome to My Django App</h1>
+    <li>{{name}}</li>
+    
+    <button onclick="showMessage()">Click Me</button>
+    <p id="message"></p>
+    <img src="{% static 'images/download.jpg' %}" alt="img" width="1400" height="400">
+    <!-- Link JS -->
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>
+
+{%endblock%}

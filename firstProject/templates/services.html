@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="stylesheet" href="{% static 'css/file.css'%}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        <form method="get">
+            <input name="data" id="data" type="text" placeholder="Search-Title">
+            <button type="submit">Search</button>
+        </form>
+        <br>
+        <br>
+        <div class="service-container">
+            {% for n in serviceData %}
+            <div class="service-box">
+                <p>{{n.service_titie | upper | safe}}</p>
+                <h3>{{n.service_field | upper}}</h3>
+                <p>{{n.service_dis | upper}}</p>
+            </div>
+            {% empty %}
+            No Data Found
+            {% endfor %}
+            
+        </div>
+    </section>
+    
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {%if serviceData.has_previous %}
+                <li class="page-item"><a class="page-link" href="/services/?page=1">First</a></li>
+                <li class="page-item"><a class="page-link" href="/services/?page={{serviceData.previous_page_number}}">Previous</a></li>
+            {% endif %}
+
+            {% for n in pagelist %}
+                <li class="page-item"><a class="page-link" href="/services/?page={{n}}">{{n}}</a></li>
+            {% endfor %}
+            {%if serviceData.has_next %}
+                <li class="page-item"><a class="page-link" href="/services/?page={{serviceData.next_page_number}}">Next</a></li>
+                <li class="page-item"><a class="page-link" href="/services/?page={{lastpage}}">Last</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+
+    <marquee onmouseover="stop()" onmouseout="start()">
+        {% for m in newsData %}
+           <a href="/newsDetails/{{m.new_slug}}"> {{m.news_title}} </a>
+        {% endfor %}
+    </marquee>
+
+</body>
+</html>

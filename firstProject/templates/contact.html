@@ -1,0 +1,40 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{% static 'css/file.css'%}">
+</head>
+<body>
+
+    <section class="contact">
+        <h2>Contact Us</h2>
+        <form  method="POST">
+            {% csrf_token %}
+            {% comment %} <label for="name">Name:</label>
+            <input type="text" id="name" value="{{name}}" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" value="{{email}}" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message"  name="message"   rows="5" required></textarea> {% endcomment %}
+            {{form}}
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <section>
+    <li>
+        Sum:{{result}}
+    </li>
+    
+
+
+    </section>
+
+</body>
+</html>
