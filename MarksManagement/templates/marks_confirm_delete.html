@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Delete Marks{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Confirm Delete</h2>
+    <p>Are you sure you want to delete marks for {{ mark.student.username }} in {{ mark.subject }}?</p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a href="{% url 'marks_list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
