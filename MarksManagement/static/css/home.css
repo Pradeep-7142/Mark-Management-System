@@ -1,0 +1,16 @@
+body {
+    background-color: #5e7a96;
+    font-family: Arial, sans-serif;
+}
+
+.container h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.btn {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 15px;
+}

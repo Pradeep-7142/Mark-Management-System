@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <h2>All Students Marks</h2>
+    <form method="get" class="mb-3">
+        <input type="text" name="subject" placeholder="Filter by subject" class="form-control mb-2">
+        <input type="text" name="student" placeholder="Filter by student username" class="form-control mb-2">
+        <button type="submit" class="btn btn-primary">Filter</button>
+    </form>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Student</th>
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for mark in marks %}
+            <tr>
+                <td>{{ mark.student.username }}</td>
+                <td>{{ mark.subject }}</td>
+                <td>{{ mark.marks_obtained }}</td>
+                <td>{{ mark.total_marks }}</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

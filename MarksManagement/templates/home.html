@@ -1,0 +1,292 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Management Portal</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --dark-color: #2c3e50;
+            --light-color: #ecf0f1;
+            --accent-color: #e74c3c;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-color);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)), 
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 5rem 0;
+            margin-bottom: 3rem;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 2rem;
+            background-color: white;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .card-img-top {
+            height: 180px;
+            object-fit: cover;
+        }
+        
+        .card-1 {
+            transform: rotate(-2deg);
+        }
+        
+        .card-2 {
+            transform: rotate(2deg);
+        }
+        
+        .card-3 {
+            transform: rotate(-3deg);
+        }
+        
+        .card-body {
+            padding: 2rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            padding: 0.8rem 2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .get-started-btn {
+            font-size: 1.2rem;
+            padding: 1rem 3rem;
+            margin: 3rem 0;
+            background-color: var(--secondary-color);
+            border: none;
+        }
+        
+        .get-started-btn:hover {
+            background-color: #27ae60;
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            position: static;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        .footer-links a {
+            color: var(--light-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        {% include "includes/header.html" %}
+        <div class="container text-center">
+            <h1 class="display-4 fw-bold">Welcome to Marks Management Portal</h1>
+            <p class="lead fs-4">Streamline your academic record-keeping with our powerful and intuitive platform</p>
+        </div>
+    </div>
+    
+    <!-- Features Section -->
+    <div class="container my-5">
+        <h2 class="text-center section-title">Key Features</h2>
+        
+        <div class="row">
+            <!-- Card 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-1 h-100">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Feature 1">
+                    <div class="card-body text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="card-title">Performance Analytics</h3>
+                        <p class="card-text">Gain valuable insights into student performance with our comprehensive analytics dashboard. Track progress, identify trends, and make data-driven decisions.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card card-2 h-100">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Feature 2">
+                    <div class="card-body text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="card-title">Collaborative Grading</h3>
+                        <p class="card-text">Enable multiple educators to collaborate on grading with our secure platform. Share comments, provide feedback, and maintain consistency across evaluations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="col-md-6 col-lg-4 mx-auto">
+                <div class="card card-3 h-100">
+                    <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Feature 3">
+                    <div class="card-body text-center">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h3 class="card-title">Secure Data Management</h3>
+                        <p class="card-text">Your data security is our top priority. We employ industry-leading encryption and access controls to protect sensitive academic information.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Additional Cards in Zigzag Pattern -->
+        <div class="row mt-4">
+            <!-- Card 4 -->
+            <div class="col-md-6">
+                <div class="card card-2 h-100">
+                    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Feature 4">
+                    <div class="card-body">
+                        <h3 class="card-title">Custom Reporting</h3>
+                        <p class="card-text">Generate customized reports tailored to your institution's specific needs. Export data in multiple formats for seamless integration with other systems.</p>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Individual student reports</li>
+                            <li class="list-group-item">Class performance summaries</li>
+                            <li class="list-group-item">Subject-wise analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Card 5 -->
+            <div class="col-md-6">
+                <div class="card card-1 h-100">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" class="card-img-top" alt="Feature 5">
+                    <div class="card-body">
+                        <h3 class="card-title">Mobile Accessibility</h3>
+                        <p class="card-text">Access the portal from anywhere with our responsive design and dedicated mobile app. Update marks, check progress, and communicate on the go.</p>
+                        <div class="d-flex justify-content-around mt-3">
+                            <span class="badge bg-primary p-2">iOS Compatible</span>
+                            <span class="badge bg-success p-2">Android Ready</span>
+                            <span class="badge bg-info p-2">Offline Mode</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Get Started Button -->
+        <div class="text-center">
+            <a class="btn btn-primary get-started-btn" href="{% url 'login' %}">Get Started Now</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 text-center text-md-start">
+                    <h5>Marks Management Portal</h5>
+                    <p>Empowering educators with innovative tools for academic excellence.</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="footer-links">
+                        <a href="#">About Us</a>
+                        <a href="#">Features</a>
+                        <a href="#">Contact</a>
+                        <a href="#">Privacy Policy</a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <p class="mt-2">&copy; 2023 Marks Management Portal. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/home.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

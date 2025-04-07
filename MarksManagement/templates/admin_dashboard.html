@@ -1,7 +1,55 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block content %}
-<h2>Welcome, {{ user.username }}!</h2>
-<p>You are logged in as a {{ user.role }}.</p>
-<a href="{% url 'logout' %}">Logout</a>
+<style>
+    body {
+        background: linear-gradient(135deg, #e0f7fa, #ffffff);
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .dashboard-container {
+        max-width: 900px;
+        margin: 60px auto;
+        padding: 40px;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .dashboard-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .dropdown-menu a:hover {
+        background-color: #007bff;
+        color: white !important;
+    }
+</style>
+
+<div class="dashboard-container">
+    <div class="dashboard-header">
+        <div>
+            <h2>Welcome, {{ user.get_full_name|default:user.username }}!</h2>
+            <p>You are logged in as a <strong>{{ user.role|title }}</strong>.</p>
+        </div>
+        <div>
+            <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+        </div>
+    </div>
+
+    <div class="dropdown mb-4">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="knowDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            See-Whole-Database
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="knowDropdown">
+            <li><a class="dropdown-item" href="{% url 'view_all_marks' %}">📘 View-All-Marks</a></li>
+            
+        </ul>
+    </div>
+</div>
 {% endblock %}

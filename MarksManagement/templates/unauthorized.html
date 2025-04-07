@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container mt-4 text-center">
+    <h3 class="text-danger">Unauthorized Access</h3>
+    <p>You are not authorized to view this page.</p>
+    <a href="{% url 'home' %}" class="btn btn-secondary">Go Back Home</a>
+</div>
+{% endblock %}

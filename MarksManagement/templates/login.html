@@ -1,11 +1,88 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h2>Login</h2>
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-</form>
-<a href="{% url 'register' %}">Don't have an account? Register</a>
+<style>
+    body {
+        background: linear-gradient(135deg, #c1f0f6, #ffffff);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .login-container {
+        max-width: 400px;
+        margin: 80px auto;
+        padding: 30px 40px;
+        background-color: white;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .login-container h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #0077b6;
+    }
+
+    .login-container form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .login-container label {
+        margin: 8px 0 4px;
+        font-weight: 500;
+    }
+
+    .login-container input {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 15px;
+        transition: all 0.3s;
+    }
+
+    .login-container input:focus {
+        border-color: #0077b6;
+        outline: none;
+        box-shadow: 0 0 5px rgba(0, 119, 182, 0.3);
+    }
+
+    .login-container button {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #0077b6;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .login-container button:hover {
+        background-color: #023e8a;
+    }
+
+    .login-container a {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+        color: #0077b6;
+        text-decoration: none;
+    }
+
+    .login-container a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+    </form>
+    <a href="{% url 'register' %}">Don't have an account? Register</a>
+</div>
 {% endblock %}
+

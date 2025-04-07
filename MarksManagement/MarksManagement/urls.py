@@ -18,11 +18,10 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings  # for medial dandle
 from django.conf.urls.static import static  # for handleling media uploads
-from MarksManagement import views  # compulsary
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home),
     path('', include('core.urls')),
 ]
 
